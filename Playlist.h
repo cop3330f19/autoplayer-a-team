@@ -17,7 +17,7 @@ class Playlist{
 	Playlist deleteSong(Song& song)const;
 	Playlist operator-(Song& songDelete)const;
 	//intersect function which returns all songs common in 
-	Playlist intersect(vector,Playlist, & list) const;
+	Playlist intersect(Playlist& list) const;
 	//Merge function which will return a new Playlist that combines all song objects from playlist called
 	//and those from playlist called by user
 	Playlist merge(Playlist& list) const;
