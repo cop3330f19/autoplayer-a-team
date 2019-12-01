@@ -33,6 +33,14 @@ class Song
 
 		// set the song
 		void set(std::string title, std::string artist, std::string album, int length, int year);
+	
+	        void setAuthor(std::string);
+                void setAlbum(std::string);
+                void setTitle(std::string);       
+        
+                std::string getAuthor()const;
+      	        std::string getAlbum()const;
+                std::string getTitle()const;
 
 	private:
 
