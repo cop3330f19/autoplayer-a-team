@@ -18,8 +18,8 @@ class Playlist{
 	Playlist intersect(Playlist& list) const;
 	//Merge function which will return a new Playlist that combines all song objects from playlist called
 	//and those from playlist called by user
-	Playlist merge(vector<Song>& songList) const;
-	Playlist operator+(vector<Song>& listMerge) const;
+	Playlist merge(Song& songList) const;
+	Playlist operator+(Song& listMerge) const;
 	//play function which prints message followed by title of song you are playing
 	//setMode function dictates how song is played
 	void play(Song& songPlay) const;
