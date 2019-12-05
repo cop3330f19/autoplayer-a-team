@@ -43,23 +43,25 @@ class Playlist{
 };
 
 #endif
-/*#ifndef PLAYLIST_H
-#define PLAYLIST_H
+/*#ifndef PLAYLIST
+#define PLAYLIST
+
 #include "Song.h"
-#include <set>
-#include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
-class PlayList{
-private:
-set<Song> playlist_;
-public:
-PlayList();
-PlayList(const Song& a_song);
-int getNumberOfSongs() const;
-bool isEmpty() const;
-bool addSong(const Song& new_song);
-bool removeSong(const Song& a_song);
-void clearPlayList();
-void displayPlayList() const;
+
+class Playlist {
+  public:
+    Playlist(string name = "None"); //Constructor
+    string GetName() const;
+    vector<Song*> GetSongs() const; //Returns a vector of pointers to song objects in the playlist
+    void AddSong(Song* song);
+    void RemoveSong(int index);
+    void RemoveSong(Song* song); //Overloaded to remove either by index or pointer
+    void Play(); //"Plays" the songs in the songs vector
+  private:
+    string name;
+    vector <Song*> songs; //The songs that belong to this Playlist
 };
-#endif*/
+#endif
