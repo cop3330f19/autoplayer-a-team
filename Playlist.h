@@ -12,53 +12,45 @@ class Playlist{
     
     private:
     
+    vector <Song> Songs;
     int NumberOfSongs;
-	
+    string Mode;
+	int SongsPlayed;
+    Song SongPlaying;
+    int IndexOfSongPlaying;
+    vector<Song> getSongs() const;
+    
 	public:
     
 	//addSong function which adds Song Object to end of Playlist Object
-	Playlist addSong(Song& song) const;
+	bool addSong(Song& song) const;
+     
 	//deleteSong function which deletes all instances of user called Song Object from a specified playlist 
-	Playlist deleteSong(Song& song)const;
+	bool deleteSong(Song& song)const;
+    
 	//intersect function which returns all songs common in 
-	Playlist intersect(Playlist& list) const;
+	Playlist intersect(const Playlist& list) const;
+    
 	//Merge function which will return a new Playlist that combines all song objects from playlist called
 	//and those from playlist called by user
-	Playlist merge(Playlist& list) const;
-	Playlist operator+(Playlist& listMerge) const;
+	Playlist merge(const Playlist& list) const;
+	Playlist operator+(const Playlist& listMerge1, const Playlist& listMerge2) const;
+    
 	//play function which prints message followed by title of song you are playing
+	//setMode function dictates how song is played
 	void play() const;
+    
 	//setMode function which dictates next song Object to be played through 3 modes(normal,repeat,loop)
-	
+	void setMode(string modesetter);
+    
+    friend std::ostream& operator<<(std::ostream& os, const Playlist& Playlist);
     
     int getNumberOfSongs()const;
     void clearPlaylist();
-    void displayPlaylist(string);
+    void displayPlaylist();
     
     
 	
 };
 
-#endif
-/*#ifndef PLAYLIST
-#define PLAYLIST
-
-#include "Song.h"
-#include <vector>
-#include <string>
-using namespace std;
-
-class Playlist {
-  public:
-    Playlist(string name = "None"); //Constructor
-    string GetName() const;
-    vector<Song*> GetSongs() const; //Returns a vector of pointers to song objects in the playlist
-    void AddSong(Song* song);
-    void RemoveSong(int index);
-    void RemoveSong(Song* song); //Overloaded to remove either by index or pointer
-    void Play(); //"Plays" the songs in the songs vector
-  private:
-    string name;
-    vector <Song*> songs; //The songs that belong to this Playlist
-};
 #endif
