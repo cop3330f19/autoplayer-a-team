@@ -61,3 +61,42 @@ cout << "* Title" << (*it).getTitle() << " * Author" << (*it).getAuthor() << " *
 cout << "End of playlist" <<endl;
 
 }
+
+/*#include "Playlist.h"
+#include <iostream>
+
+Playlist::Playlist(string name) {
+  this->name = name;
+}
+
+string Playlist::GetName() const {
+  return name;
+}
+
+void Playlist::AddSong(Song *song) {
+  songs.push_back(song); //Adds the song pointer to the vector of song pointers belonging to this Playlist object
+}
+
+void Playlist::RemoveSong(int index) {
+  songs.erase(songs.begin() + index);
+}
+
+void Playlist::RemoveSong(Song* song) {
+  for (int i = 0; i < songs.size(); i++){
+    if (songs.at(i) == song){ //If the addresses that the pointers point to are the same, erase the pointer from the songs vector
+      songs.erase(songs.begin() + i);
+      break;
+    }
+  }
+}
+
+vector<Song*> Playlist::GetSongs() const {
+  return songs;
+}
+
+void Playlist::Play() {
+  cout << "Playing first lines of playlist: " << name << endl;
+  for (int i = 0; i < songs.size(); i++) {
+    songs.at(i)->Play();
+  }
+}
