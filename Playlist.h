@@ -29,8 +29,7 @@ class Playlist{
 	Playlist merge(Playlist& list) const;
 	Playlist operator+(Playlist& listMerge) const;
 	//play function which prints message followed by title of song you are playing
-	//setMode function dictates how song is played
-	void play(Song& songPlay) const;
+	void play() const;
 	//setMode function which dictates next song Object to be played through 3 modes(normal,repeat,loop)
 	
     
