@@ -48,8 +48,17 @@ std::ofstream& operator<<(std::ofstream& os, const Song& song)
 //Overloaded Output String Stream which reads in Song Details into Song Object
 std::istream& operator>>(std::istream& is, Song& song)
 {
-	char comma;
-	is >> song.title >> comma >> song.artist >> comma >> song.album >> comma >> song.year >> comma >> song.length;
+	cout << "Song Details" << endl;
+	cout << "Title: ";
+	getline(is,song.title);
+	cout << "Artist: ";
+	getline(is,song.artist);
+	cout << "Album: ";
+	getline(is,song.album);
+	cout << "Year: ";
+	is >> song.year;
+	cout << "Length (in seconds): ";
+	is >> song.length;
 	
 	return is;
 }
@@ -57,8 +66,20 @@ std::istream& operator>>(std::istream& is, Song& song)
 //Overloaded Output String Stream which reads in Song Details into a file
 std::fstream& operator>>(std::fstream& is, Song& song)
 {
+	string line,myString,myString2;
+	while (getline(is,line))
+	{
+		stringstream ss(line);
+		
+		getline(ss,song.title,',');
+		getline(ss,song.artist,',');
+		getline(ss,song.album,',');
+		getline(ss,myString,',');
+		song.year = stoi(myString);
+		getline(ss,myString2,',');
+		song.length = stoi(myString2); 
+	}
 	
-	is >> song.title >> song.artist >>song.album >> song.year >> song.length;
 	return is;
 }
 
