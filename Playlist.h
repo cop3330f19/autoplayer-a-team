@@ -18,10 +18,8 @@ class Playlist{
     
 	//addSong function which adds Song Object to end of Playlist Object
 	Playlist addSong(Song& song) const;
-	Playlist operator+(Song& songAdd) const;
 	//deleteSong function which deletes all instances of user called Song Object from a specified playlist 
 	Playlist deleteSong(Song& song)const;
-	Playlist operator-(Song& songDelete)const;
 	//intersect function which returns all songs common in 
 	Playlist intersect(Playlist& list) const;
 	//Merge function which will return a new Playlist that combines all song objects from playlist called
